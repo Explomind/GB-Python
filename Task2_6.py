@@ -15,9 +15,7 @@ def color_mix(color_1, color_2):
     elif color_1 == color_2:
         print('Mixed color: {0}'.format(color_1))
     else:
-        # print('Ok')
         key = colors_dict[color_1] + colors_dict[color_2]
-        # print('color_1 key: {0}, color_2 key: {1}'.format(colors_dict.keys(color_1), colors_dict.keys(color_2)))
         print('Mixed color: {0}'.format(colors_dict[key]))
 
 
