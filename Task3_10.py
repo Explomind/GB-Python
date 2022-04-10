@@ -2,7 +2,9 @@
 
 def sum_series(n):
     series_list = [(1 + int('1' + str(i))) * i for i in range(1, n + 1)]
-    return series_list
+    print(*series_list)
+    result = sum(series_list)
+    return result
 
 number = int(input('Input number: '))
-print(sum_series(number))
+print('Sum of elements = {0}'.format(sum_series(number)))
