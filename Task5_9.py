@@ -75,5 +75,16 @@ def calc(str_expr):
     return result
 
 
-math_expression = '-4 + 20 / 8 - 4 * 8 + 10 / 5'
+def calc_with_par(str_expr):
+    if str_expr.find('(') != -1:
+        start = str_expr.find('(') + 1
+        end = str_expr.find(')')
+        expr_in_pars = str_expr[start:end]
+        str_expr = str_expr[:start - 1] + str(calc(expr_in_pars)) + str_expr[end + 1:]
+    return calc(str_expr)
+
+
+math_expression = '-20 / 4 + 4 * 6 - 10'
 print('{} = {}'.format(math_expression, calc(math_expression)))
+math_expression = '-20 / 4 + 4 * (18 - 10) - 3'
+print('{} = {}'.format(math_expression, calc_with_par(math_expression)))
