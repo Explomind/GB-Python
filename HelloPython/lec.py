@@ -126,12 +126,17 @@
 # res = list(map(lambda x: (x, x ** 2), res))
 # print(res)
 
-users = ['user1', 'user2', 'user3', 'user4']
-ids = [2, 3, 5, 8, 4]
-data = list(zip(ids, users))
-print(data)
-salaries = [222, 444, 555]
-data = list(zip(ids, users, salaries))
-print(data)
-data = list(enumerate(users))
-print(data)
+# users = ['user1', 'user2', 'user3', 'user4']
+# ids = [2, 3, 5, 8, 4]
+# data = list(zip(ids, users))
+# print(data)
+# salaries = [222, 444, 555]
+# data = list(zip(ids, users, salaries))
+# print(data)
+# data = list(enumerate(users))
+# print(data)
+
+any_list = [0, 1, 2, 3, 4, 5]
+print(any_list)
+any_list.insert(2, 10)
+print(any_list)
