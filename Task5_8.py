@@ -9,9 +9,13 @@ def draw_board(board):
 
 def take_input(player_token):
     while True:
-        turn_pos = int(input('Куда поставить {}: '.format(player_token)))
+        turn_pos = input('Where you want to put {}: '.format(player_token))
+        try:
+            turn_pos = int(turn_pos)
+        except ValueError:
+            print('You should input a number of a field!')
         if turn_pos in range(1, 10):
-            if board[turn_pos - 1] in range(1, 10):
+            if str(board[turn_pos - 1]) not in 'XO':
                 board[turn_pos - 1] = player_token
                 break
             else:
@@ -21,9 +25,9 @@ def take_input(player_token):
 
 
 def check_win(board):
-    win_list = [(1, 2, 3), (4, 5, 6), (7, 8, 9), (1, 4, 7), (2, 5, 8), (3, 6, 9), (1, 5, 9), (3, 5, 7)]
+    win_list = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (0, 3, 6), (1, 4, 7), (2, 5, 8), (0, 4, 8), (2, 4, 6))
     for item in win_list:
-        if board[item[0] - 1] == board[item[1] - 1] == board[item[2] - 1]:
+        if board[item[0]] == board[item[1]] == board[item[2]]:
             return True
     return False
 
