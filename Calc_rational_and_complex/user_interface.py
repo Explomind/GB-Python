@@ -17,18 +17,41 @@ def common_fraction_input():
     return str_number
 
 
+def complex_num_input():
+    while True:
+        str_number = input('Input complex number (e.g. 2+3j): ')
+        try:
+            if 'j' not in str_number:
+                return int(str_number)
+            else:
+                sign_pos = str_number.find('+')
+                if sign_pos != -1:
+                    real_part = int(str_number[:sign_pos])
+                    imag_part = int(str_number[sign_pos + 1:-1])
+                else:
+                    sign_pos = str_number.rfind('-')
+                    if sign_pos in range(-1, 1):
+                        real_part = 0
+                        imag_part = int(str_number[:-1])
+                    else:
+                        real_part = int(str_number[:sign_pos])
+                        imag_part = int(str_number[sign_pos:-1])
+                return complex(real_part, imag_part)
+        except ValueError:
+            print('Incorrect input!')
+
+
 def operation_input():
     while True:
         operation = input('Input arithmetic operation (+, -, *, /): ')
         if operation in '+-*/':
-            break
+            return operation
         else:
             print('Incorrect input!')
-    return operation
 
 
 def menu():
-    descript = ['This is calculator to operate with rational and complex numbers.',
+    descript = ['Calculator to operate with rational and complex numbers.',
                 'Possible actions: sum "+", subtraction "-", multiplication "*", division "/"']
     print(*descript, sep='\n')
     menu_items = '12'
