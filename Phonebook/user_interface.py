@@ -1,8 +1,8 @@
 def menu_choice():
     while True:
         menu_text = ('1 - input data',
-                     '2 - show data, form 1',
-                     '3 - show data, form 2',
+                     '2 - show data, one record - one line',
+                     '3 - show data, each parameter in other line',
                      '4 - quit')
         for each in menu_text:
             print(each)
@@ -12,5 +12,3 @@ def menu_choice():
             return choice
         else:
             print('Incorrect input!', '\n')
-
-# menu_choice()

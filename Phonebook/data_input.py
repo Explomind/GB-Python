@@ -5,9 +5,20 @@ def input_data():
     surname = input('Surname: ')
     phone = input('Phone number: ')
     comment = input('Comment: ')
-    data = '{0};{1};{2};{3}\n'.format(name, surname, phone, comment)
-    with open('data.csv', 'a') as file:
-        file.write(data)
-    return (name, surname, phone, comment)
+    return [name, surname, phone, comment]
 
-# print(input_data())
+
+def write_data_one_string(data):
+    data_str = ''
+    for each in data:
+        data_str += each + ';'
+    data_str += '\n'
+    with open('data_os.csv', 'a') as file:
+        file.write(data_str)
+
+
+def write_data_dif_string(data):
+    with open('data_ds.csv', 'a') as file:
+        for each in data:
+            file.write(each)
+            file.write('\n')
