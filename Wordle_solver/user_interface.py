@@ -1,5 +1,5 @@
 def input_green():
-    green_letters = input('Введите "зеленые" буквы (формат: _а__б): ')
+    green_letters = input('Введите все "зеленые" буквы (формат: _а__б): ')
     return green_letters
 
 
@@ -9,17 +9,18 @@ def input_yellow():
 
 
 def input_grey(grey_letters=''):
-    grey_letters += input('Введите новые "серые" буквы: ')
+    grey_letters += input('Введите новые "серые" буквы в строку без пробелов (формат: абв): ')
     return grey_letters
 
 
 def menu():
-    menu_items = '12345'
+    menu_items = '123456'
     instruction = ['1 - ввести "зеленые" буквы',
                    '2 - ввести "желтые" буквы',
                    '3 - ввести "серые" буквы',
                    '4 - показать слова',
-                   '5 - выход']
+                   '5 - показать случайное слово',
+                   '6 - выход']
     for each in instruction:
         print(each)
     while True:
@@ -28,3 +29,18 @@ def menu():
             return choice
         else:
             print('Нет такого пункта!')
+
+
+def show_words(data, amount):
+    start = 0
+    end = amount
+    while True:
+        line = ''
+        for i in range(start, end):
+            if i == len(data):
+                print(line)
+                return
+            line += data[i] + '\t'
+        print(line)
+        start = end
+        end += amount

@@ -24,7 +24,6 @@ def grey_letters_filter(data, grey_letters):  # фильтрация по "се�
 
 
 def yellow_letters_filter(data, yellow_letters):  # фильтрация по "желтым" буквам
-    # yellow_dict = {i: yellow_letters[i] for i in range(len(yellow_letters))}
     result = []
     for word in data:
         is_found = True  # проверка есть ли "желтая" буква в слове
@@ -34,7 +33,7 @@ def yellow_letters_filter(data, yellow_letters):  # фильтрация по "�
                     is_found = False
                     break
                 else:
-                    if yellow_letters[i] == word[i]:
+                    if yellow_letters[i] == word[i]:  # проверка положения "желтой" буквы в слове
                         is_found = False
                         break
         if is_found:
@@ -43,7 +42,6 @@ def yellow_letters_filter(data, yellow_letters):  # фильтрация по "�
 
 
 def green_letters_filter(data, green_letters):  # фильтрация по "зеленым" буквам
-    # green_dict = {i: green_letters[i] for i in range(len(green_letters))}
     result = []
     for word in data:
         is_match = True
@@ -55,5 +53,3 @@ def green_letters_filter(data, green_letters):  # фильтрация по "з�
         if is_match:
             result.append(word)
     return result
-
-

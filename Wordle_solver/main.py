@@ -1,10 +1,12 @@
 import user_interface as ui
 import model as m
+import logger as log
 
 
 def seek_words():
     grey_letters = ui.input_grey()
     data = m.first_filter(grey_letters)
+    data = m.grey_letters_filter(data, grey_letters)
     while True:
         choice = ui.menu()
         if choice == '1':
@@ -17,9 +19,13 @@ def seek_words():
             grey_letters = ui.input_grey(grey_letters)
             data = m.grey_letters_filter(data, grey_letters)
         elif choice == '4':
-            print(data)
-            input()
+            ui.show_words(data, 15)
+            input('Нажмите Enter')
         elif choice == '5':
+            print(log.random_word())
+            input('Нажмите Enter')
+        elif choice == '6':
+            log.log_words()
             break
 
 
